@@ -12,11 +12,12 @@ package com.itnkc.a01;
  * @Date: 2021/12/7 22:28
  */
 public class ThreadTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         new MyThread().start();
-        new MyThread().start();
+        Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
+//                Thread.sleep(500);
                 System.out.println(Thread.currentThread().getName());
                 System.out.println(i + "*****main()*****");
             }
@@ -28,6 +29,13 @@ class MyThread extends Thread {
     public void run() {
         for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
+//                try {
+//                    Thread.sleep(500);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                // 设置当前线程的优先级
+                Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
                 System.out.println(Thread.currentThread().getName());
                 System.out.println(i);
             }
