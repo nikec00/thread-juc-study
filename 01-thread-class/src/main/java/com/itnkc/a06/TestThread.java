@@ -25,11 +25,11 @@ class A implements Runnable {
         while (true) {
             synchronized (TestThread.str1) {
                 System.out.println(new Date().toString() + "线程A锁住了a1锁");
-//                try {
-//                    Thread.sleep(100);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 synchronized (TestThread.str2) {
                     System.out.println(new Date().toString() + "线程A执行了b1锁");
                 }
@@ -45,11 +45,11 @@ class B implements Runnable {
         while (true) {
             synchronized (TestThread.str2) {
                 System.out.println(new Date().toString() + "线程B锁住了b1锁");
-//                try {
-//                    Thread.sleep(100);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 synchronized (TestThread.str1) {
                     System.out.println(new Date().toString() + "线程B执行了a1锁");
                 }
