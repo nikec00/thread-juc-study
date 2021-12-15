@@ -17,7 +17,7 @@ public class TestDemo2 {
             }
         }, "线程12").start();
         new Thread(() -> {
-            for (int i = 0; i < 40; i++) {
+            for (int i =  0; i < 40; i++) {
                 share.remove();
             }
         }, "线程2").start();
